@@ -1,14 +1,15 @@
+import { useReducer } from "react"
 import { MenuItems } from "./components/MenuItems"
 import { OrderItems } from "./components/OrderItems"
 import OrderTotal from "./components/OrderTotal"
 import TipForm from "./components/TipForm"
 import { menuItems } from "./data/db"
-import useOrder from "./hooks/useOrder"
+import { initialState, orderReducer } from "./reducers/order-reducers"
 
 function App() {
 
+  const [state, dispatch] = useReducer(orderReducer, initialState)
 
-  const { addItem, deleteItem, order, tip, setTip, saveOrder } = useOrder()
   return (
     <>
       <header className="bg-rose-300 py-5 text-center flex flex-col">
@@ -29,30 +30,28 @@ function App() {
             {menuItems.map(item => (
               <MenuItems key={item.id}
                 item={item}
-                addItem={addItem}
+                dispatch={dispatch}
               />
             ))}
           </div>
         </div>
 
         <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
-          {order.length ?
+          {state.order.length ?
             (
-
-
               <>
                 <OrderItems
-                  order={order}
-                  deleteItem={deleteItem}
+                  order={state.order}
+                  dispatch={dispatch}
                 />
                 <TipForm
-                  setTip={setTip}
-                  tip={tip}
+                  dispatch={dispatch}
+                  tip={state.tip}
                 />
                 <OrderTotal
-                  order={order}
-                  tip={tip}
-                  saveOrder={saveOrder}
+                  order={state.order}
+                  tip={state.tip}
+                  dispatch={dispatch}
                 />
               </>
             ) : <p className='text-center text-lg font-bold'>La orden esta vacia..</p>}
