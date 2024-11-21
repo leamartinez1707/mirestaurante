@@ -1,64 +1,248 @@
-import type { MenuItem } from '../types/index'
+import type { MenuItem, Food } from '../types/index'
 
 export const menuItems: MenuItem[] = [
   {
     "id": 1,
-    "name": "Pizza a la Leña Chica",
+    "name": "Pizzeta chica",
     "price": 30
   },
   {
     "id": 2,
-    "name": "Pizza a la Leña Mediana",
+    "name": "Pizzeta mediana",
     "price": 50
   },
   {
     "id": 3,
-    "name": "Rebanada de Pay de Limón",
-    "price": 30
+    "name": "Pizzeta grande",
+    "price": 70
   },
   {
     "id": 4,
-    "name": "Rebanada de Pastel de Chocolate",
+    "name": "Pay de Limón",
     "price": 30
   },
   {
     "id": 5,
-    "name": "Jugo de Naranja",
-    "price": 15
-  },
-  {
-    "id": 6,
-    "name": "Pizza a la Leña Grande",
-    "price": 70
-  },
-  {
-    "id": 7,
-    "name": "Rib Eye 800g",
-    "price": 100
-  },
-  {
-    "id": 8,
-    "name": "Jugo de Naranja",
-    "price": 15
-  },
-  {
-    "id": 9,
-    "name": "Tequila",
-    "price": 40
-  },
-  {
-    "id": 10,
-    "name": "Rebanada de Pay de Queso",
+    "name": "Pay de Queso",
     "price": 30
   },
   {
+    "id": 6,
+    "name": "Torta de Chocolate",
+    "price": 30
+  },
+  {
+    "id": 7,
+    "name": "Flan",
+    "price": 50
+  },
+  {
+    "id": 8,
+    "name": "Torta de Zanahoria",
+    "price": 30
+  },
+
+  {
+    "id": 9,
+    "name": "Jugo de Naranja",
+    "price": 15
+  },
+  {
+    "id": 10,
+    "name": "Jugo de Frutilla",
+    "price": 15
+  },
+  {
     "id": 11,
+    "name": "Cerveza rubia",
+    "price": 40
+  },
+  {
+    "id": 12,
     "name": "Café Americano",
     "price": 20
   },
   {
-    "id": 12,
+    "id": 13,
     "name": "Café Capuchino",
     "price": 40
-  }
+  },
+  {
+    "id": 14,
+    "name": "Agua",
+    "price": 40
+  },
 ]
+
+export const foodList: Food[] = [
+  {
+    id: 1,
+    name: "Pizza Margarita",
+    description: "Masa fina, tomate fresco, mozzarella y albahaca.",
+    price: 15.99,
+    category: "Plato principal",
+    image: "pizza-margarita.jpg",
+    availability: true,
+    ingredients: ["Tomate", "Mozzarella", "Albahaca", "Masa de pizza"],
+    isVegetarian: true,
+    isVegan: false,
+    isGlutenFree: false,
+    calories: 550,
+    spicyLevel: 0,
+    preparationTime: 15,
+    rating: 4.5,
+  },
+  {
+    id: 2,
+    name: "Brownie de Chocolate",
+    description: "Brownie con trozos de chocolate negro y helado de vainilla.",
+    price: 8.99,
+    category: "Postre",
+    image: "brownie.jpg",
+    availability: true,
+    ingredients: ["Chocolate", "Harina", "Azúcar", "Huevo", "Mantequilla"],
+    isVegetarian: true,
+    isVegan: false,
+    isGlutenFree: false,
+    calories: 400,
+    spicyLevel: 0,
+    preparationTime: 10,
+    rating: 4.8,
+  },
+  {
+    id: 3,
+    name: "Ensalada César",
+    description: "Lechuga romana, crutones, pollo grillado y aderezo César.",
+    price: 12.5,
+    category: "Entrada",
+    image: "https://mi-restaurante.com/images/ensalada-cesar.jpg",
+    availability: true,
+    ingredients: ["Lechuga", "Pollo", "Aderezo César", "Crutones", "Queso parmesano"],
+    isVegetarian: false,
+    isVegan: false,
+    isGlutenFree: false,
+    calories: 350,
+    spicyLevel: 0,
+    preparationTime: 8,
+    rating: 4.6,
+  },
+  {
+    id: 4,
+    name: "Hamburguesa Clásica",
+    description: "Hamburguesa con queso, lechuga, tomate y aderezo especial.",
+    price: 13.99,
+    category: "Plato principal",
+    image: "https://mi-restaurante.com/images/hamburguesa-clasica.jpg",
+    availability: true,
+    ingredients: ["Carne", "Queso", "Lechuga", "Tomate", "Pan"],
+    isVegetarian: false,
+    isVegan: false,
+    isGlutenFree: false,
+    calories: 700,
+    spicyLevel: 0,
+    preparationTime: 12,
+    rating: 4.7,
+  },
+  {
+    id: 5,
+    name: "Sopa de Tomate",
+    description: "Sopa cremosa de tomate servida con pan tostado.",
+    price: 7.5,
+    category: "Entrada",
+    image: "https://mi-restaurante.com/images/sopa-tomate.jpg",
+    availability: true,
+    ingredients: ["Tomate", "Crema", "Especias", "Pan tostado"],
+    isVegetarian: true,
+    isVegan: false,
+    isGlutenFree: false,
+    calories: 200,
+    spicyLevel: 0,
+    preparationTime: 10,
+    rating: 4.2,
+  },
+  {
+    id: 6,
+    name: "Tacos de Pollo",
+    description: "Tacos suaves rellenos de pollo, cebolla y cilantro.",
+    price: 9.99,
+    category: "Plato principal",
+    image: "https://mi-restaurante.com/images/tacos-pollo.jpg",
+    availability: true,
+    ingredients: ["Pollo", "Tortilla", "Cebolla", "Cilantro", "Salsa"],
+    isVegetarian: false,
+    isVegan: false,
+    isGlutenFree: false,
+    calories: 400,
+    spicyLevel: 2,
+    preparationTime: 10,
+    rating: 4.3,
+  },
+  {
+    id: 7,
+    name: "Helado de Vainilla",
+    description: "Helado cremoso de vainilla con chispas de chocolate.",
+    price: 5.5,
+    category: "Postre",
+    image: "https://mi-restaurante.com/images/helado-vainilla.jpg",
+    availability: true,
+    ingredients: ["Leche", "Azúcar", "Vainilla", "Chocolate"],
+    isVegetarian: true,
+    isVegan: false,
+    isGlutenFree: true,
+    calories: 250,
+    spicyLevel: 0,
+    preparationTime: 5,
+    rating: 4.9,
+  },
+  {
+    id: 8,
+    name: "Curry de Garbanzos",
+    description: "Garbanzos en una salsa especiada de curry y coco.",
+    price: 11.5,
+    category: "Plato principal",
+    image: "https://mi-restaurante.com/images/curry-garbanzos.jpg",
+    availability: true,
+    ingredients: ["Garbanzos", "Coco", "Curry", "Especias"],
+    isVegetarian: true,
+    isVegan: true,
+    isGlutenFree: true,
+    calories: 320,
+    spicyLevel: 4,
+    preparationTime: 20,
+    rating: 4.4,
+  },
+  {
+    id: 9,
+    name: "Sushi Roll",
+    description: "Roll de salmón, aguacate y queso crema.",
+    price: 14.99,
+    category: "Plato principal",
+    image: "https://mi-restaurante.com/images/sushi-roll.jpg",
+    availability: true,
+    ingredients: ["Arroz", "Salmón", "Aguacate", "Queso crema", "Alga nori"],
+    isVegetarian: false,
+    isVegan: false,
+    isGlutenFree: true,
+    calories: 300,
+    spicyLevel: 1,
+    preparationTime: 15,
+    rating: 4.7,
+  },
+  {
+    id: 10,
+    name: "Limonada",
+    description: "Refrescante limonada natural con menta.",
+    price: 3.99,
+    category: "Bebida",
+    image: "https://mi-restaurante.com/images/limonada.jpg",
+    availability: true,
+    ingredients: ["Limón", "Azúcar", "Agua", "Menta"],
+    isVegetarian: true,
+    isVegan: true,
+    isGlutenFree: true,
+    calories: 80,
+    spicyLevel: 0,
+    preparationTime: 3,
+    rating: 4.8,
+  },
+];

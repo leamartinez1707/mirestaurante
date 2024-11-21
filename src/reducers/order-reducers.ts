@@ -43,12 +43,10 @@ export const orderReducer = (
         }
     }
     if (action.type === 'save-order') {
-        const order: OrderItem[] = []
-        const tip = 0
         return {
             ...state,
-            order,
-            tip
+            order: [],
+            tip: 0
         }
     }
     if (action.type === 'add-tip') {
