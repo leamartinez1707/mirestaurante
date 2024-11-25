@@ -15,7 +15,7 @@ const MenuView = () => {
     return (
         <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
             <div className="p-5">
-                <h2 className="text-4xl font-black">Menú</h2>
+                <h2 className="text-4xl font-black">Órdenes</h2>
 
                 <div className="mt-10 space-y-3">
 

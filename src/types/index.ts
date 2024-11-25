@@ -32,5 +32,7 @@ export type Food = {
 // Tipo para la lista de comidas (base de datos simulada)
 export type FoodDatabase = Food[];
 
+export type GroupedFood = Record<Food["category"], Food[]>;
+
 
 

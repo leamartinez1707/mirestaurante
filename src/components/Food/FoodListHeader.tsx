@@ -1,11 +1,7 @@
 import {
-    BriefcaseIcon,
-    CalendarIcon,
     CheckIcon,
     ChevronDownIcon,
-    CurrencyDollarIcon,
     LinkIcon,
-    MapPinIcon,
     PencilIcon,
 } from '@heroicons/react/20/solid'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
@@ -17,24 +13,9 @@ const FoodListHeader = () => {
                 <h1 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
                     Tablero para manejar la lista de comidas
                 </h1>
-                {/* <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
-                    <div className="mt-2 flex items-center text-sm text-gray-500">
-                        <BriefcaseIcon aria-hidden="true" className="mr-1.5 size-5 shrink-0 text-gray-400" />
-                        Full-time
-                    </div>
-                    <div className="mt-2 flex items-center text-sm text-gray-500">
-                        <MapPinIcon aria-hidden="true" className="mr-1.5 size-5 shrink-0 text-gray-400" />
-                        Remote
-                    </div>
-                    <div className="mt-2 flex items-center text-sm text-gray-500">
-                        <CurrencyDollarIcon aria-hidden="true" className="mr-1.5 size-5 shrink-0 text-gray-400" />
-                        $120k &ndash; $140k
-                    </div>
-                    <div className="mt-2 flex items-center text-sm text-gray-500">
-                        <CalendarIcon aria-hidden="true" className="mr-1.5 size-5 shrink-0 text-gray-400" />
-                        Closing on January 9, 2020
-                    </div>
-                </div> */}
+                <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+                    <p className="text-gray-500 py-2">Acá podras agregar, editar o eliminar las comidas. Establecer disponibilidad del plato para los clientes en tiempo real.</p>
+                </div>
             </div>
             <div className="mt-5 flex lg:ml-4 lg:mt-0">
                 <span className="hidden sm:block">
