@@ -5,13 +5,15 @@ type FoodListProps = {
     groupedFood: GroupedFood;
 }
 const FoodList = ({ groupedFood }: FoodListProps) => {
-
+    if (!groupedFood || Object.keys(groupedFood).length === 0) {
+        return <p>No hay datos para mostrar.</p>;
+    }
     return (
         <div>
             {Object.keys(groupedFood).map((category) => (
                 <div key={category}>
                     <ul role="list" className="divide-y divide-gray-100">
-                        <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-xl sm:tracking-tight my-4">Lista</h2>
+                        <h2 className="text-2xl/7 font-normal text-gray-500 sm:truncate sm:text-xl sm:tracking-tight my-4">{category}</h2>
                         {groupedFood[category as Food["category"]]?.map((item) => (
                             <li key={item.id} className="flex justify-between gap-x-6 py-5">
                                 <div className="flex min-w-0 gap-x-4">

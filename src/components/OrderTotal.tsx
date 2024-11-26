@@ -2,6 +2,7 @@ import { useMemo, Dispatch } from "react"
 import { OrderItem } from "../types"
 import { formatCurrency } from "../helpers"
 import { OrderActions } from "../reducers/order-reducers"
+import { enqueueSnackbar } from "notistack"
 
 type OrderTotalProps = {
     order: OrderItem[],
@@ -31,7 +32,12 @@ export default function OrderTotal({ order, tip, dispatch }: OrderTotalProps) {
             <button
                 className="w-full bg-black hover:bg-gray-800 p-3 uppercase text-white fot-semibold mt-8 disabled:opacity-10"
                 disabled={total === 0}
-                onClick={() => dispatch({ type: 'save-order' })}
+                onClick={() => {
+                    enqueueSnackbar('Orden guardada', { variant: 'success' })
+                    dispatch({ type: 'save-order' })
+
+                }
+                }
             >
                 Guardar orden
             </button>

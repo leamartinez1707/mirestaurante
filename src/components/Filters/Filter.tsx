@@ -63,16 +63,18 @@ const Filter = () => {
         selectedFilters.length === 0 || selectedFilters.includes(item.category)
     );
 
-    const groupedFood = filteredFood.reduce((acc, item) => {
+    const groupedFood = filteredFood.length > 0 ? filteredFood.reduce((acc, item) => {
         if (!acc[item.category]) {
             acc[item.category] = [];
         }
         acc[item.category].push(item);
         return acc;
-    }, {} as Record<Food["category"], Food[]>);
-
-
-
+    }, {} as Record<Food["category"], Food[]>) : {
+        "Entrada": [],
+        "Plato principal": [],
+        "Postre": [],
+        "Bebida": []
+    };
     return (
         <div className="bg-white">
             <div>
@@ -215,16 +217,8 @@ const Filter = () => {
                             {/* Filters */}
                             <form className="hidden lg:block">
                                 <h3 className="sr-only">Categorias</h3>
-                                {/* <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
-                                    {subCategories.map((category) => (
-                                        <li key={category.name}>
-                                            <a href={category.href}>{category.name}</a>
-                                        </li>
-                                    ))}
-                                </ul> */}
-
                                 {filters.map((section) => (
-                                    <Disclosure key={section.id} as="div" className="border-b border-gray-200 py-6">
+                                    <Disclosure key={section.id} as="div" className="border-b border-gray-200 pb-6" defaultOpen={true}>
                                         <h3 className="-my-3 flow-root">
                                             <DisclosureButton className="group flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
                                                 <span className="font-medium text-gray-900">{section.name}</span>
@@ -259,7 +253,9 @@ const Filter = () => {
                             </form>
 
                             {/* Product grid */}
-                            <div className="lg:col-span-3"><FoodList groupedFood={groupedFood} /></div>
+                            <div className="lg:col-span-3">
+                                <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">Listado de comidas</h2>
+                                <FoodList groupedFood={groupedFood} /></div>
                         </div>
                     </section>
                 </main>
