@@ -11,6 +11,7 @@ const MenuView = () => {
 
     const [state, dispatch] = useReducer(orderReducer, initialState)
 
+    console.log(state)
 
     return (
         <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">

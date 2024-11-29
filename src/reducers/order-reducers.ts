@@ -4,23 +4,22 @@ import { MenuItem, OrderItem } from "../types";
 export type OrderActions =
     { type: 'add-item', payload: { item: MenuItem } } |
     { type: 'remove-item', payload: { id: MenuItem['id'] } } |
-    { type: 'save-order' } |
+    { type: 'save-order', payload: { orderItem: OrderItem, tip: number } } |
     { type: 'add-tip', payload: { value: number } };
 
 
 export type OrderState = {
     order: OrderItem[],
-    tip: number
+    tip: number,
+    orders: [OrderItem[]] // Modificar esto, para que sea un array, de ordenes que dentro tienen un array de OrderItem
 }
 export const initialState = {
     order: [],
-    tip: 0
+    tip: 0,
+    orders: []
 }
 
-export const orderReducer = (
-    state: OrderState = initialState,
-    action: OrderActions
-) => {
+export const orderReducer = (state: OrderState = initialState, action: OrderActions) => {
     if (action.type === 'add-item') {
         const itemExist = state.order.find(orderItem => orderItem.id === action.payload.item.id)
         let updateOrder: OrderItem[] = []
@@ -43,8 +42,13 @@ export const orderReducer = (
         }
     }
     if (action.type === 'save-order') {
+        console.log(action.payload)
+        const newOrder = action.payload.orderItem
+        const tip = action.payload.tip
+        const newOrders = [...state.orders, { ...newOrder, tip }]
         return {
             ...state,
+            orders: newOrders,
             order: [],
             tip: 0
         }

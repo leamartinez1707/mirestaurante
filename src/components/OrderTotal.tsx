@@ -34,13 +34,13 @@ export default function OrderTotal({ order, tip, dispatch }: OrderTotalProps) {
                 disabled={total === 0}
                 onClick={() => {
                     enqueueSnackbar('Orden guardada', { variant: 'success' })
-                    dispatch({ type: 'save-order' })
+                    dispatch({ type: 'save-order', payload: { orderItem: order, tip: tip } })
 
                 }
                 }
             >
                 Guardar orden
-            </button>
+            </button >
         </>
     )
 }
