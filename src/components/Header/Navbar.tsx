@@ -6,7 +6,7 @@ const navigation = [
     { name: 'Menu', href: '/', current: true },
     { name: 'Comidas', href: '/food/list', current: false },
     { name: 'Mesas', href: '/tables', current: false },
-    { name: 'Reservas', href: '#', current: false },
+    { name: 'Órdenes', href: '/orders', current: false },
 ]
 
 function classNames(...classes: string[]) {
@@ -32,7 +32,7 @@ export default function Example() {
                         <div className="flex shrink-0 items-center">
                             <img
                                 alt="Your Company"
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                                src="/android-chrome-512x512.png"
                                 className="h-8 w-auto"
                             />
                         </div>

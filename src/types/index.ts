@@ -10,6 +10,16 @@ export type OrderItem = MenuItem & {
 
 }
 
+export type Orders = {
+    id: string,
+    order: OrderItem[],
+    tip: number,
+    total: number,
+    status: 'Pendiente' | 'Completada' | 'Cancelada',
+    customerName: string,
+    date: Date
+}
+
 // Tipo para cada comida
 export type Food = {
     id: number; // Identificador único

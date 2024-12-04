@@ -1,10 +1,11 @@
 # Manejo de pedidos en Restaurante.
 
 1. Mejoras en la interfaz de usuario (UI/UX):
-Sistema de navegación: Añade un menú fijo con enlaces a las diferentes secciones (Inicio, Menú, Contacto, Reservas, etc.).
-Diseño responsivo: Asegúrate de que la página se vea bien en dispositivos móviles, tablets y computadoras.
+[*] Sistema de navegación: Añade un menú fijo con enlaces a las diferentes secciones (Inicio, Menú, Contacto, Reservas, etc.).
+[*] Diseño responsivo: Asegúrate de que la página se vea bien en dispositivos móviles, tablets y computadoras.
 Interacciones dinámicas: Incluye animaciones sutiles al pasar el ratón por botones o al cargar contenido (usando TailwindCSS o framer-motion).
 Temas oscuros y claros: Añade un selector de tema para que los usuarios puedan elegir entre "dark mode" y "light mode".
+
 2. Nuevas funcionalidades:
 Sistema de pedidos online:
 
@@ -22,6 +23,7 @@ Reseñas de usuarios:
 
 Agrega una sección donde los usuarios puedan dejar comentarios y calificar los platos.
 Usa una librería como react-stars para implementar calificaciones visuales.
+
 3. Optimización del backend (si lo tienes o planeas añadir uno):
 Base de datos para productos:
 Usa Firebase, MongoDB o cualquier otro servicio para guardar la información del menú.
@@ -29,6 +31,7 @@ Permite agregar, editar y eliminar platos desde una interfaz de administración.
 Autenticación:
 Implementa un sistema de inicio de sesión para clientes y administradores (puedes usar Firebase Auth).
 Diferencia entre usuarios normales y administradores para gestionar permisos.
+
 4. Mejoras técnicas:
 Pruebas unitarias:
 
@@ -41,6 +44,7 @@ Integración con APIs:
 
 Integra Google Maps para mostrar la ubicación del restaurante.
 Usa una API para traducir el contenido a varios idiomas (e.g., i18next para internacionalización).
+
 5. Documentación y despliegue:
 README mejorado:
 Agrega capturas de pantalla, descripción de las funcionalidades, y pasos para clonar e instalar el proyecto.
