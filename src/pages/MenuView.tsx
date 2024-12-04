@@ -1,17 +1,20 @@
-import { useReducer } from "react"
+import { useEffect } from "react"
 import { MenuItems } from "../components/MenuItems"
 import { OrderItems } from "../components/OrderItems"
 import OrderTotal from "../components/OrderTotal"
 import TipForm from "../components/TipForm"
-import { menuItems } from "../data/db"
-import { initialState, orderReducer } from "../reducers/order-reducers"
+import { foodList } from "../data/db"
+import { useOrderContext } from "../hooks/useGeneralContext"
 
 
 const MenuView = () => {
 
-    const [state, dispatch] = useReducer(orderReducer, initialState)
+    const { state, dispatch } = useOrderContext()
 
-    console.log(state)
+    // Sincroniza localStorage con las órdenes del estado
+    useEffect(() => {
+        localStorage.setItem('orders', JSON.stringify(state.orders));
+    }, [state.orders]);
 
     return (
         <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
@@ -27,7 +30,7 @@ const MenuView = () => {
 
                 <div className="mt-10 space-y-3">
 
-                    {menuItems.map(item => (
+                    {foodList.map(item => (
                         <MenuItems key={item.id}
                             item={item}
                             dispatch={dispatch}

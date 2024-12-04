@@ -91,13 +91,13 @@ const Filter = () => {
                             className="relative ml-auto flex size-full max-w-xs transform flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:translate-x-full"
                         >
                             <div className="flex items-center justify-between px-4">
-                                <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                                <h2 className="text-lg font-medium text-gray-900">Filtros</h2>
                                 <button
                                     type="button"
                                     onClick={() => setMobileFiltersOpen(false)}
                                     className="-mr-2 flex size-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
                                 >
-                                    <span className="sr-only">Close menu</span>
+                                    <span className="sr-only">Cerrar menú</span>
                                     <XMarkIcon aria-hidden="true" className="size-6" />
                                 </button>
                             </div>

@@ -26,7 +26,7 @@ type TipFormProps = {
 export default function TipForm({ dispatch, tip }: TipFormProps) {
   return (
     <div>
-      <h3 className="text-2xl font-black">Propina: </h3>
+      <h3 className="text-2xl font-semibold">Propina: </h3>
 
       <form action="">
         {tipOptions.map(tipOpt => (

@@ -5,8 +5,11 @@ import {
     PencilIcon,
 } from '@heroicons/react/20/solid'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { useState } from 'react'
 
 const FoodListHeader = () => {
+
+    const [openModal, setOpenModal] = useState(false)
     return (
         <div className="lg:flex lg:items-center lg:justify-between">
             <div className="min-w-0 flex-1">
@@ -30,6 +33,7 @@ const FoodListHeader = () => {
 
                 <span className="ml-3 hidden sm:block">
                     <button
+                        onClick={() => setOpenModal(true)}
                         type="button"
                         className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                     >
