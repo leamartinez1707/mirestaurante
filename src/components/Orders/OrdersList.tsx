@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useState, useEffect, Fragment, useRef } from 'react'
 import { format } from 'date-fns'
 import { CalendarIcon, MagnifyingGlassIcon, TrashIcon } from '@heroicons/react/24/outline'
@@ -30,8 +28,8 @@ export const OrdersList = ({ orders }: OrdersListProps) => {
         }
     }
 
-    const handleDelete = (id: number) => {
-        setOrdersList(orders.filter((order, index) => index !== id))
+    const handleDelete = (id: string) => {
+        setOrdersList(orders.filter(order => order.id !== id))
     }
 
     useEffect(() => {
@@ -134,7 +132,7 @@ export const OrdersList = ({ orders }: OrdersListProps) => {
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{order.status}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <button
-                                            onClick={() => handleDelete(index)}
+                                            onClick={() => handleDelete(index.toString())}
                                             className="text-red-600 hover:text-red-900"
                                         >
                                             <TrashIcon className="h-5 w-5" />
