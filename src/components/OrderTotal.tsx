@@ -1,6 +1,6 @@
 import { useMemo, Dispatch } from "react"
 import { OrderItem, Orders } from "../types"
-import { formatCurrency } from "../helpers"
+import { formatCurrency, generateUniqueOrderId } from "../helpers"
 import { OrderActions } from "../reducers/order-reducers"
 import { enqueueSnackbar } from "notistack"
 
@@ -18,7 +18,7 @@ export default function OrderTotal({ order, tip, dispatch }: OrderTotalProps) {
     const date = new Date()
 
     const finalOrder: Orders = {
-        id: Math.random().toString(36),
+        id: generateUniqueOrderId(),
         order,
         tip,
         total,

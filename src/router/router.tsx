@@ -1,29 +1,37 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import AppLayout from "../layouts/AppLayout"
-import MenuView from "../pages/MenuView"
-import FoodView from "../pages/FoodView"
-import FoodDetail from "../components/Food/FoodDetail"
-import OrdersView from "../pages/OrdersView"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { Suspense } from "react";
+import AppLayout from "../layouts/AppLayout";
+import { routes } from "./routesConfig";
+import Loader from "../components/Loader/Loader";
+
+const MenuView = React.lazy(() => import("../pages/MenuView"));
+const FoodView = React.lazy(() => import("../pages/FoodView"));
+const FoodDetail = React.lazy(() => import("../components/Food/FoodDetail"));
+const OrdersView = React.lazy(() => import("../pages/OrdersView"));
+const NotFound = React.lazy(() => import("../pages/NotFound"));
+
+// Mapeo de rutas
+const routesMap = [
+  { path: routes.home, element: <MenuView />, index: true },
+  { path: routes.foodList, element: <FoodView /> },
+  { path: routes.foodDetail, element: <FoodDetail /> },
+  { path: routes.orders, element: <OrdersView /> },
+  { path: routes.tables, element: <NotFound /> },
+  { path: routes.notFound, element: <NotFound /> },
+];
 
 export const Router = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path="/" element={<MenuView />} index />
-
-          {/* Food */}
-          <Route path="/food/list" element={<FoodView />} />
-          <Route path="/food/:id/detail" element={<FoodDetail />} />
-
-          {/* Orders */}
-          <Route path="/orders" element={<OrdersView />} />
-
-          {/* Tables */}
-          <Route path="/tables" element={<p>Mesas</p>} />
-          <Route path="*" element={<h1 className="text-4xl mx-auto text-center mt-40">Página no encontrada..</h1>} />
-        </Route>
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route element={<AppLayout />}>
+            {routesMap.map(({ path, element, index }) => (
+              <Route key={path} path={path} element={element} index={index} />
+            ))}
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }

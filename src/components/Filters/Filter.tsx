@@ -253,7 +253,8 @@ const Filter = () => {
                             {/* Product grid */}
                             <div className="lg:col-span-3">
                                 <h2 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-xl sm:tracking-tight">Listado de comidas</h2>
-                                <FoodList groupedFood={groupedFood} /></div>
+                                <FoodList groupedFood={groupedFood} />
+                                </div>
                         </div>
                     </section>
                 </main>

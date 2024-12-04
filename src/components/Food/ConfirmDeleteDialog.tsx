@@ -3,15 +3,19 @@ import React from 'react'
 
 
 type FoodDeleteDialogProps = {
-    isDeleteDialogOpen: boolean
-    setIsDeleteDialogOpen: (isOpen: boolean) => void
-    onDelete: (id: number) => void
-    food: { id: number, name: string }
+    isOpen: boolean
+    setIsOpen: (isOpen: boolean) => void
+    onDelete: (id: number | string) => void
+    item: { id: number | undefined, name: string | undefined }
+    title: string
+    description: string
 }
-const FoodDeleteDialog = ({ isDeleteDialogOpen, setIsDeleteDialogOpen, onDelete, food }: FoodDeleteDialogProps) => {
+const ConfirmDeleteDialog = ({ isOpen, setIsOpen, onDelete, item, title, description }: FoodDeleteDialogProps) => {
+
+    if (!item.id) return null
     return (
-        <div><Transition appear show={isDeleteDialogOpen} as={React.Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={() => setIsDeleteDialogOpen(false)}>
+        <div><Transition appear show={isOpen} as={React.Fragment}>
+            <Dialog as="div" className="relative z-10" onClose={() => setIsOpen(false)}>
                 <TransitionChild
                     as={React.Fragment}
                     enter="ease-out duration-300"
@@ -40,11 +44,11 @@ const FoodDeleteDialog = ({ isDeleteDialogOpen, setIsDeleteDialogOpen, onDelete,
                                     as="h3"
                                     className="text-lg font-medium leading-6 text-gray-900"
                                 >
-                                    Confirmar eliminación
+                                    {title}
                                 </DialogTitle>
                                 <div className="mt-2">
                                     <p className="text-sm text-gray-500">
-                                        ¿Estás seguro de que quieres eliminar el producto? Esta acción no se puede deshacer.
+                                        {description}
                                     </p>
                                 </div>
 
@@ -52,7 +56,7 @@ const FoodDeleteDialog = ({ isDeleteDialogOpen, setIsDeleteDialogOpen, onDelete,
                                     <button
                                         type="button"
                                         className="inline-flex justify-center rounded-md border border-transparent bg-gray-100 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
-                                        onClick={() => setIsDeleteDialogOpen(false)}
+                                        onClick={() => setIsOpen(false)}
                                     >
                                         Cancelar
                                     </button>
@@ -60,8 +64,8 @@ const FoodDeleteDialog = ({ isDeleteDialogOpen, setIsDeleteDialogOpen, onDelete,
                                         type="button"
                                         className="inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
                                         onClick={() => {
-                                            onDelete(food.id)
-                                            setIsDeleteDialogOpen(false)
+                                            onDelete(item.id!)
+                                            setIsOpen(false)
                                         }}
                                     >
                                         Eliminar
@@ -76,4 +80,4 @@ const FoodDeleteDialog = ({ isDeleteDialogOpen, setIsDeleteDialogOpen, onDelete,
     )
 }
 
-export default FoodDeleteDialog
+export default ConfirmDeleteDialog

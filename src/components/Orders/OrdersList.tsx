@@ -5,6 +5,9 @@ import { Popover, Transition } from '@headlessui/react'
 import { DayPicker } from 'react-day-picker'
 import "react-day-picker/style.css";
 import { Orders } from '../../types'
+import { useOrderContext } from '../../hooks/useGeneralContext'
+import { enqueueSnackbar } from 'notistack'
+import ConfirmDeleteDialog from '../Food/ConfirmDeleteDialog'
 
 
 type OrdersListProps = {
@@ -12,25 +15,39 @@ type OrdersListProps = {
 }
 
 export const OrdersList = ({ orders }: OrdersListProps) => {
-
+    const { dispatch } = useOrderContext()
+    const [isOpen, setIsOpen] = useState(false)
+    const [selectedOrder, setSelectedOrder] = useState<Orders | null>(null)
     const [ordersList, setOrdersList] = useState(orders)
-    const [searchId, setSearchId] = useState('')
+    const [searchId, setSearchId] = useState<number | null>(null)
     const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
     const popoverButtonRef = useRef<HTMLButtonElement>(null)
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault()
         if (searchId) {
-            const filteredOrders = orders.filter(order => order.id.toLowerCase().includes(searchId.toLowerCase()))
+            const filteredOrders = orders.filter(order => order.id.toString().includes(searchId.toString()))
             setOrdersList(filteredOrders)
         } else {
             setOrdersList(orders)
         }
     }
 
-    const handleDelete = (id: string) => {
-        setOrdersList(orders.filter(order => order.id !== id))
+    const openModal = () => {
+        setIsOpen(true)
     }
+    const closeModal = () => {
+        setIsOpen(false)
+    }
+
+
+    const handleDelete = (id: Orders['id']) => {
+        setSearchId(null)
+        dispatch({ type: 'remove-order', payload: { id } })
+        enqueueSnackbar('Orden eliminada', { variant: 'success' })
+        closeModal()
+    }
+
 
     useEffect(() => {
         if (selectedDate) {
@@ -52,10 +69,11 @@ export const OrdersList = ({ orders }: OrdersListProps) => {
                     <form onSubmit={handleSearch} className="flex gap-2">
                         <div className="relative">
                             <input
-                                type="text"
+                                type="number"
+                                min={0}
                                 placeholder="Buscar por ID"
-                                value={searchId}
-                                onChange={(e) => setSearchId(e.target.value)}
+                                value={searchId ? searchId : undefined}
+                                onChange={(e) => setSearchId(+e.target.value)}
                                 className="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
@@ -123,16 +141,19 @@ export const OrdersList = ({ orders }: OrdersListProps) => {
                             </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
-                            {ordersList.map((order, index) => (
-                                <tr key={index}>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{index}</td>
+                            {ordersList.map((order) => (
+                                <tr key={order.id}>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{order.id}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{order.customerName}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{format(order.date, 'dd/MM/yyyy')}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${order.total.toFixed(2)}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{order.status}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <button
-                                            onClick={() => handleDelete(index.toString())}
+                                            onClick={() => (
+                                                setSelectedOrder(order),
+                                                openModal()
+                                            )}
                                             className="text-red-600 hover:text-red-900"
                                         >
                                             <TrashIcon className="h-5 w-5" />
@@ -148,6 +169,8 @@ export const OrdersList = ({ orders }: OrdersListProps) => {
                     <p className="text-center mt-4 text-gray-500">No se encontraron órdenes.</p>
                 )}
             </div>
+            <ConfirmDeleteDialog item={{ id: selectedOrder?.id, name: selectedOrder?.customerName }} isOpen={isOpen} setIsOpen={setIsOpen} onDelete={(id) => handleDelete(+id)} title='Eliminar órden' description='¿Está seguro/a que desea eliminar esta órden? No se puede volver atrás luego de eliminada.' />
+
         </main>
     )
 }

@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { MenuItems } from "../components/MenuItems"
 import { OrderItems } from "../components/OrderItems"
 import OrderTotal from "../components/OrderTotal"
@@ -10,11 +9,6 @@ import { useOrderContext } from "../hooks/useGeneralContext"
 const MenuView = () => {
 
     const { state, dispatch } = useOrderContext()
-
-    // Sincroniza localStorage con las órdenes del estado
-    useEffect(() => {
-        localStorage.setItem('orders', JSON.stringify(state.orders));
-    }, [state.orders]);
 
     return (
         <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">

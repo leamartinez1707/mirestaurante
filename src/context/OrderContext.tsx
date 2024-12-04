@@ -1,4 +1,4 @@
-import { createContext, useReducer, ReactNode, Dispatch, FC } from 'react';
+import { createContext, useReducer, ReactNode, Dispatch, FC, useEffect } from 'react';
 import { OrderState, OrderActions, orderReducer, initialState } from '../reducers/order-reducers';
 
 // Define el tipo del contexto
@@ -17,6 +17,13 @@ type OrderProviderProps = {
 
 export const OrderProvider: FC<OrderProviderProps> = ({ children }) => {
     const [state, dispatch] = useReducer(orderReducer, initialState);
+
+
+
+    // Sincroniza localStorage con las órdenes del estado
+    useEffect(() => {
+        localStorage.setItem('orders', JSON.stringify(state.orders));
+    }, [state.orders]);
 
     return (
         <OrderContext.Provider value={{ state, dispatch }}>
