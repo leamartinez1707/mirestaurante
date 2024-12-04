@@ -9,7 +9,7 @@ import { useState } from 'react'
 
 const FoodListHeader = () => {
 
-    const [openModal, setOpenModal] = useState(false)
+    const [, setOpenModal] = useState(false)
     return (
         <div className="lg:flex lg:items-center lg:justify-between">
             <div className="min-w-0 flex-1">
