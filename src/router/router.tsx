@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import AppLayout from "../layouts/AppLayout";
 import { routes } from "./routesConfig";
 import Loader from "../components/Loader/Loader";
+import FoodForm from "../components/Food/FoodForm";
 
 const MenuView = React.lazy(() => import("../pages/MenuView"));
 const FoodView = React.lazy(() => import("../pages/FoodView"));
@@ -14,6 +15,7 @@ const NotFound = React.lazy(() => import("../pages/NotFound"));
 const routesMap = [
   { path: routes.home, element: <MenuView />, index: true },
   { path: routes.foodList, element: <FoodView /> },
+  { path: routes.foodForm, element: <FoodForm /> },
   { path: routes.foodDetail, element: <FoodDetail /> },
   { path: routes.orders, element: <OrdersView /> },
   { path: routes.tables, element: <NotFound /> },

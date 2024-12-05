@@ -6,10 +6,12 @@ import {
 } from '@heroicons/react/20/solid'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const FoodListHeader = () => {
 
     const [, setOpenModal] = useState(false)
+    const navigate = useNavigate()
     return (
         <div className="lg:flex lg:items-center lg:justify-between">
             <div className="min-w-0 flex-1">
@@ -45,6 +47,7 @@ const FoodListHeader = () => {
                 <span className="sm:ml-3">
                     <button
                         type="button"
+                        onClick={() => navigate('/food/create')}
                         className="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
                         <CheckIcon aria-hidden="true" className="-ml-0.5 mr-1.5 size-5" />

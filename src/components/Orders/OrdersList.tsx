@@ -61,9 +61,17 @@ export const OrdersList = ({ orders }: OrdersListProps) => {
     }, [selectedDate, orders])
 
     return (
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="border-b border-gray-200 pb-6 mt-24">
-                <h1 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Gestión de Órdenes</h1>
+        <div className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8">
+            <div className="border-b border-gray-200 pb-6 md:mt-24">
+                {/* <h1 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Gestión de Órdenes</h1> */}
+                <div className="min-w-0 flex-1">
+                    <h1 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                        Gestión de órdenes
+                    </h1>
+                    <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+                        <p className="text-gray-500 py-2">Desde acá podras manejar las órdenes, ver los detalles, modificar y eliminar.</p>
+                    </div>
+                </div>
 
                 <div className="flex justify-between items-center mb-4">
                     <form onSubmit={handleSearch} className="flex gap-2">
@@ -170,8 +178,7 @@ export const OrdersList = ({ orders }: OrdersListProps) => {
                 )}
             </div>
             <ConfirmDeleteDialog item={{ id: selectedOrder?.id, name: selectedOrder?.customerName }} isOpen={isOpen} setIsOpen={setIsOpen} onDelete={(id) => handleDelete(+id)} title='Eliminar órden' description='¿Está seguro/a que desea eliminar esta órden? No se puede volver atrás luego de eliminada.' />
-
-        </main>
+        </div>
     )
 }
 

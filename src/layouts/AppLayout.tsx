@@ -9,7 +9,7 @@ const AppLayout = () => {
                 <Navbar />
             </header>
 
-            <main className="min-h-lvh max-w-screen-2xl mx-auto">
+            <main className="min-h-lvh max-w-screen-2xl mx-auto             ">
                 <Outlet />
             </main>
 
