@@ -6,7 +6,7 @@ export type OrderActions =
     { type: 'remove-item', payload: { id: MenuItem['id'] } } |
     { type: 'save-order', payload: { newOrder: Orders } } |
     { type: 'add-tip', payload: { value: number } } |
-    { type: 'remove-order', payload: { id: MenuItem['id'] } }
+    { type: 'remove-order', payload: { id: Orders['id'] } }
 
 
 export type OrderState = {
@@ -50,6 +50,13 @@ export const orderReducer = (state: OrderState = initialState, action: OrderActi
             orders: newOrders,
             order: [],
             tip: 0
+        }
+    }
+    if (action.type === 'remove-order') {
+        const orders = state.orders.filter(order => order.id !== action.payload.id)
+        return {
+            ...state,
+            orders
         }
     }
     if (action.type === 'add-tip') {

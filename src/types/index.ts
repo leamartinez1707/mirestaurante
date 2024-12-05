@@ -11,7 +11,7 @@ export type OrderItem = MenuItem & {
 }
 
 export type Orders = {
-    id: string,
+    id: number,
     order: OrderItem[],
     tip: number,
     total: number,

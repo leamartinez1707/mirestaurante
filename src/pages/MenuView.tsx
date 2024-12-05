@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { MenuItems } from "../components/MenuItems"
 import { OrderItems } from "../components/OrderItems"
 import OrderTotal from "../components/OrderTotal"
@@ -11,14 +10,9 @@ const MenuView = () => {
 
     const { state, dispatch } = useOrderContext()
 
-    // Sincroniza localStorage con las órdenes del estado
-    useEffect(() => {
-        localStorage.setItem('orders', JSON.stringify(state.orders));
-    }, [state.orders]);
-
     return (
-        <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
-            <div className="p-5">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 px-1 sm:px-6 lg:px-8 md:mt-24">
+            <div className="">
                 <div className="min-w-0 flex-1">
                     <h1 className="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
                         Manejo de órdenes
@@ -60,7 +54,7 @@ const MenuView = () => {
                     ) : <p className='text-center text-lg font-bold'>La orden esta vacia..</p>}
             </div>
 
-        </main>
+        </div>
     )
 }
 
