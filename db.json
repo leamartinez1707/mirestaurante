@@ -1,0 +1,229 @@
+{
+    "food": [
+        {
+            "id": 1,
+            "name": "Pizza Margarita",
+            "description": "Masa fina, tomate fresco, mozzarella y albahaca.",
+            "price": 15.99,
+            "category": "Plato principal",
+            "image": "pizzamargarita.webp",
+            "availability": true,
+            "ingredients": [
+                "Tomate",
+                "Mozzarella",
+                "Albahaca",
+                "Masa de pizza"
+            ],
+            "isVegetarian": true,
+            "isVegan": false,
+            "isGlutenFree": false,
+            "calories": 550,
+            "spicyLevel": 0,
+            "preparationTime": 15,
+            "rating": 4.5
+        },
+        {
+            "id": 2,
+            "name": "Brownie de Chocolate",
+            "description": "Brownie con trozos de chocolate negro y helado de vainilla.",
+            "price": 8.99,
+            "category": "Postre",
+            "image": "brownie.webp",
+            "availability": true,
+            "ingredients": [
+                "Chocolate",
+                "Harina",
+                "Azúcar",
+                "Huevo",
+                "Mantequilla"
+            ],
+            "isVegetarian": true,
+            "isVegan": false,
+            "isGlutenFree": false,
+            "calories": 400,
+            "spicyLevel": 0,
+            "preparationTime": 10,
+            "rating": 4.8
+        },
+        {
+            "id": 3,
+            "name": "Ensalada César",
+            "description": "Lechuga romana, crutones, pollo grillado y aderezo César.",
+            "price": 12.5,
+            "category": "Entrada",
+            "image": "caesar.webp",
+            "availability": true,
+            "ingredients": [
+                "Lechuga",
+                "Pollo",
+                "Aderezo César",
+                "Crutones",
+                "Queso parmesano"
+            ],
+            "isVegetarian": false,
+            "isVegan": false,
+            "isGlutenFree": false,
+            "calories": 350,
+            "spicyLevel": 0,
+            "preparationTime": 8,
+            "rating": 4.6
+        },
+        {
+            "id": 4,
+            "name": "Hamburguesa Clásica",
+            "description": "Hamburguesa con queso, lechuga, tomate y aderezo especial.",
+            "price": 13.99,
+            "category": "Plato principal",
+            "image": "hamburguesa.webp",
+            "availability": false,
+            "ingredients": [
+                "Carne",
+                "Queso",
+                "Lechuga",
+                "Tomate",
+                "Pan"
+            ],
+            "isVegetarian": false,
+            "isVegan": false,
+            "isGlutenFree": false,
+            "calories": 700,
+            "spicyLevel": 0,
+            "preparationTime": 12,
+            "rating": 4.7
+        },
+        {
+            "id": 5,
+            "name": "Sopa de Tomate",
+            "description": "Sopa cremosa de tomate servida con pan tostado.",
+            "price": 7.5,
+            "category": "Entrada",
+            "image": "sopatomate.webp",
+            "availability": false,
+            "ingredients": [
+                "Tomate",
+                "Crema",
+                "Especias",
+                "Pan tostado"
+            ],
+            "isVegetarian": true,
+            "isVegan": false,
+            "isGlutenFree": false,
+            "calories": 200,
+            "spicyLevel": 0,
+            "preparationTime": 10,
+            "rating": 4.2
+        },
+        {
+            "id": 6,
+            "name": "Tacos de Pollo",
+            "description": "Tacos suaves rellenos de pollo, cebolla y cilantro.",
+            "price": 9.99,
+            "category": "Plato principal",
+            "image": "tacospollo.webp",
+            "availability": true,
+            "ingredients": [
+                "Pollo",
+                "Tortilla",
+                "Cebolla",
+                "Cilantro",
+                "Salsa"
+            ],
+            "isVegetarian": false,
+            "isVegan": false,
+            "isGlutenFree": false,
+            "calories": 400,
+            "spicyLevel": 2,
+            "preparationTime": 10,
+            "rating": 4.3
+        },
+        {
+            "id": 7,
+            "name": "Helado de Vainilla",
+            "description": "Helado cremoso de vainilla con chispas de chocolate.",
+            "price": 5.5,
+            "category": "Postre",
+            "image": "heladovainilla.webp",
+            "availability": true,
+            "ingredients": [
+                "Leche",
+                "Azúcar",
+                "Vainilla",
+                "Chocolate"
+            ],
+            "isVegetarian": true,
+            "isVegan": false,
+            "isGlutenFree": true,
+            "calories": 250,
+            "spicyLevel": 0,
+            "preparationTime": 5,
+            "rating": 4.9
+        },
+        {
+            "id": 8,
+            "name": "Curry de Garbanzos",
+            "description": "Garbanzos en una salsa especiada de curry y coco.",
+            "price": 11.5,
+            "category": "Plato principal",
+            "image": "curry.webp",
+            "availability": true,
+            "ingredients": [
+                "Garbanzos",
+                "Coco",
+                "Curry",
+                "Especias"
+            ],
+            "isVegetarian": true,
+            "isVegan": true,
+            "isGlutenFree": true,
+            "calories": 320,
+            "spicyLevel": 4,
+            "preparationTime": 20,
+            "rating": 4.4
+        },
+        {
+            "id": 9,
+            "name": "Sushi Roll",
+            "description": "Roll de salmón, aguacate y queso crema.",
+            "price": 14.99,
+            "category": "Plato principal",
+            "image": "sushiroll.webp",
+            "availability": true,
+            "ingredients": [
+                "Arroz",
+                "Salmón",
+                "Aguacate",
+                "Queso crema",
+                "Alga nori"
+            ],
+            "isVegetarian": false,
+            "isVegan": false,
+            "isGlutenFree": true,
+            "calories": 300,
+            "spicyLevel": 1,
+            "preparationTime": 15,
+            "rating": 4.7
+        },
+        {
+            "id": 10,
+            "name": "Limonada",
+            "description": "Refrescante limonada natural con menta.",
+            "price": 3.99,
+            "category": "Bebida",
+            "image": "limonada.webp",
+            "availability": true,
+            "ingredients": [
+                "Limón",
+                "Azúcar",
+                "Agua",
+                "Menta"
+            ],
+            "isVegetarian": true,
+            "isVegan": true,
+            "isGlutenFree": true,
+            "calories": 80,
+            "spicyLevel": 0,
+            "preparationTime": 3,
+            "rating": 4.8
+        }
+    ]
+}
